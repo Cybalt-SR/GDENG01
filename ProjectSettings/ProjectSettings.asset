@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 27
-  productGUID: 917ff5f43bdc179458a093c7f6b657ae
+  productGUID: 34d399e6454169147b8b5b683652c86e
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: GDENG01
+  productName: GDENG01-GAMEJAM1
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -847,14 +847,14 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: GDENG01
+  metroPackageName: GDENG01-GAMEJAM1
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: GDENG01
+  metroApplicationDescription: GDENG01-GAMEJAM1
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -926,10 +926,10 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 10fe014f-769d-4e20-8318-e0a7674560ea
+  cloudProjectId: 7b6a8bdc-20f1-4e84-9023-8a6f6c6efb7c
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: GDENG01
+  projectName: GDENG01-GAMEJAM1
   organizationId: gabriel_paulo_rayo
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
