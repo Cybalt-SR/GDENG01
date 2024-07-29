@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu/GAMEJAM2_MAINMENU.unity
+    guid: 37e56608f01fe684b9cfc80a0153f21a
+  - enabled: 1
     path: Assets/White Room/White Room.unity
     guid: c9d22605411591b4a98838a3bd01d68d
   - enabled: 0

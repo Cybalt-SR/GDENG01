@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Enemy : MonoBehaviour
 {
     public float speed = 5f;            // Speed of the enemy
@@ -15,6 +16,13 @@ public class Enemy : MonoBehaviour
     private float currentHP;          // Current health of the enemy
     private bool isIlluminated = false;
     private Coroutine damageCoroutine;
+
+    public GameObject enemyPrefab;
+
+    void SpawnEnemy(Vector3 position)
+    {
+        Instantiate(enemyPrefab, position, Quaternion.identity);
+    }
 
     void Start()
     {
