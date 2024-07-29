@@ -10,6 +10,11 @@ public class MainMenu_SampleGame : MonoBehaviour
         SceneManager.LoadScene("White Room");
     }
 
+    public void Help()
+    {
+        SceneManager.LoadScene("HowtoPlay");
+        Cursor.visible = true;
+    }
     public void QuitGame()
     {
         Application.Quit();
