@@ -15,8 +15,4 @@ public class MainMenu_SampleGame : MonoBehaviour
         Application.Quit();
     }
 
-    public void MainMenu()
-    {
-        SceneManager.LoadScene("MainMenu_SampleGame");
-    }
 }
