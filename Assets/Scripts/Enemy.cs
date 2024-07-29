@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = Player.Instance.transform;
         currentHP = maxHP;
 
         Rigidbody rb = GetComponent<Rigidbody>();
@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
         Collider collider = GetComponent<Collider>();
         if (collider == null)
         {
-            collider = gameObject.AddComponent<SphereCollider>();
+            collider = gameObject.AddComponent<BoxCollider>();
         }
 
         rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
