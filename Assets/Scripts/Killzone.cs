@@ -13,7 +13,7 @@ public class Killzone : MonoSingleton<Killzone>
         }
     }
 
-    void Die()
+    public void Die()
     {
         Player.Instance.mCharacterController.Move(StartPosition.Instance.transform.position - Player.Instance.transform.position);
 
