@@ -7,8 +7,6 @@ public class Pickupable : MonoBehaviour
     public static readonly List<Pickupable> pickupables = new();
     public static int currentscore = 0;
 
-    static int scoreGoal = 5;
-
     private void Awake()
     {
         if (pickupables.Contains(this) == false)
@@ -24,19 +22,18 @@ public class Pickupable : MonoBehaviour
     {
         this.gameObject.SetActive(false);
         currentscore++;
+
+        if(currentscore == pickupables.Count)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("WinScreen");
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
     private void OnGUI()
     {
-        GUILayout.Box("Masks Found : " + currentscore);
-    }
-
-    void Update()
-    {
-        if (currentscore >= scoreGoal)
-        {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("WinScreen");
-        }
+        GUILayout.Box("Masks Found : " + currentscore + "/" + pickupables.Count);
     }
 
     public static void Reset()

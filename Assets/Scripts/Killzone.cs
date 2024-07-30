@@ -15,8 +15,8 @@ public class Killzone : MonoSingleton<Killzone>
 
     public void Die()
     {
-        Player.Instance.mCharacterController.Move(StartPosition.Instance.transform.position - Player.Instance.transform.position);
-
-        Pickupable.Reset();
+        UnityEngine.SceneManagement.SceneManager.LoadScene("LoseScreen");
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }
