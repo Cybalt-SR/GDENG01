@@ -51,7 +51,6 @@ public class PauseMenu : MonoBehaviour
     {
         SceneManager.LoadScene("GAMEJAM2_MAINMENU");
         Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
     }
 
     public void Quit()
