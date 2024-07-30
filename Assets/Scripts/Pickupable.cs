@@ -5,7 +5,9 @@ using UnityEngine;
 public class Pickupable : MonoBehaviour
 {
     public static readonly List<Pickupable> pickupables = new();
-    public static int currentscore { get; private set; }
+    public static int currentscore = 0;
+
+    static int scoreGoal = 5;
 
     private void Awake()
     {
@@ -22,6 +24,19 @@ public class Pickupable : MonoBehaviour
     {
         this.gameObject.SetActive(false);
         currentscore++;
+    }
+
+    private void OnGUI()
+    {
+        GUILayout.Box("Masks Found : " + currentscore);
+    }
+
+    void Update()
+    {
+        if (currentscore >= scoreGoal)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("WinScreen");
+        }
     }
 
     public static void Reset()
