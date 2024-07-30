@@ -9,15 +9,17 @@ public class Enemy : MonoBehaviour
     public float rotationSpeed = 2f;    // Speed of rotation towards the player
     public float maxHP = 100;         // Maximum health of the enemy
     public float damagePerSecond = 10f; // Damage dealt per second by the flashlight
-    public Animator animator;        // Reference to the enemy's animator component
     public AudioSource deathSound;   // Reference to the enemy's death sound
+    public AudioClip deathclip;
+    float kill_dist = 1;
 
     private Transform player;           // Transform of player
-    private float currentHP;          // Current health of the enemy
+    [SerializeField] private float currentHP;          // Current health of the enemy
     private bool isIlluminated = false;
     private Coroutine damageCoroutine;
 
     public GameObject enemyPrefab;
+    Rigidbody rb;
 
     void SpawnEnemy(Vector3 position)
     {
@@ -29,20 +31,7 @@ public class Enemy : MonoBehaviour
         player = Player.Instance.transform;
         currentHP = maxHP;
 
-        Rigidbody rb = GetComponent<Rigidbody>();
-        if (rb == null)
-        {
-            rb = gameObject.AddComponent<Rigidbody>();
-            rb.useGravity = false;  // Disable gravity for flying behavior
-        }
-
-        Collider collider = GetComponent<Collider>();
-        if (collider == null)
-        {
-            collider = gameObject.AddComponent<BoxCollider>();
-        }
-
-        rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -50,15 +39,20 @@ public class Enemy : MonoBehaviour
         // Rotate towards the player
         Vector3 direction = player.position - transform.position;
         Quaternion rotation = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+        transform.rotation = rotation;
 
         // Move towards the player
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        rb.velocity += (transform.forward * speed * Time.deltaTime);
 
         // Check if enemy is destroyed
         if (currentHP <= 0)
         {
             Destroy(gameObject);
+        }
+
+        if(direction.sqrMagnitude <= kill_dist * kill_dist)
+        {
+            Killzone.Instance.Die();
         }
     }
 
@@ -66,33 +60,24 @@ public class Enemy : MonoBehaviour
     {
         if (other.CompareTag("Flashlight"))
         {
-            if (!isIlluminated)
-            {
-                isIlluminated = true;
-                damageCoroutine = StartCoroutine(ApplyDamageOverTime());
-            }
+            isIlluminated = true;
         }
+
     }
 
     void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Flashlight"))
         {
-            if (isIlluminated)
-            {
-                isIlluminated = false;
-                StopCoroutine(damageCoroutine);
-            }
+            isIlluminated = false;
         }
+
     }
 
-    IEnumerator ApplyDamageOverTime()
+    private void OnTriggerStay(Collider other)
     {
-        while (isIlluminated)
-        {
+        if (other.CompareTag("Flashlight"))
             TakeDamage(damagePerSecond * Time.deltaTime);
-            yield return null;
-        }
     }
 
     public void TakeDamage(float damage)
@@ -106,30 +91,8 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        // Play death animation
-        if (animator != null)
-        {
-            animator.SetTrigger("Die");
-        }
-
-        // Play death sound
-        if (deathSound != null)
-        {
-            deathSound.Play();
-        }
-
-        // Wait for the animation and sound to finish before destroying the enemy
-        float deathDuration = 0;
-        if (animator != null)
-        {
-            deathDuration = animator.GetCurrentAnimatorStateInfo(0).length;
-        }
-        if (deathSound != null)
-        {
-            deathDuration = Mathf.Max(deathDuration, deathSound.clip.length);
-        }
-
-        Destroy(gameObject, deathDuration);
+        deathSound.PlayOneShot(deathclip);
+        Destroy(gameObject);
     }
 
 }
