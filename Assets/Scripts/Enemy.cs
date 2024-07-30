@@ -32,6 +32,8 @@ public class Enemy : MonoBehaviour
         currentHP = maxHP;
 
         rb = GetComponent<Rigidbody>();
+
+        Destroy(gameObject, 10);
     }
 
     void Update()
