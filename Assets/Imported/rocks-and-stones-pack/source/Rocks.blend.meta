@@ -3,7 +3,57 @@ guid: 3e41ed7e145dca04e8cea9834b0ddf3c
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rock_01
+    second: {fileID: 2100000, guid: 181c417a98a249d4caad4c551d6a4a96, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rock_02
+    second: {fileID: 2100000, guid: 123ebe04c56d6724fbb631fd09428590, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rock_03
+    second: {fileID: 2100000, guid: 9fe2f3795f316da46aa5b68942b17cac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rock_03S
+    second: {fileID: 2100000, guid: 51c71b735beae3c4a94a9606b0123b98, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rock_04
+    second: {fileID: 2100000, guid: 90bcdbe36274e9a44a869ab1f03ee338, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rock_05
+    second: {fileID: 2100000, guid: 067a4328149e0ac46803052dd3b8b015, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rock_05S
+    second: {fileID: 2100000, guid: b4eeba04bccb2bc4da8f6bb6e38000d1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rock_06
+    second: {fileID: 2100000, guid: 2e0ee89aedea73647899e0b3b9cc1f5d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rock_07
+    second: {fileID: 2100000, guid: 5ebed203a1974234ea473f248e7bc59b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rock_08
+    second: {fileID: 2100000, guid: 86f46a260c880fc4c98c6c72a6500b9b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
